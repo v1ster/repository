@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "24c8bca07d8b88fb",
+        "id": "0bba9514252e31d5",
         "type": "tabs",
         "children": [
           {
-            "id": "8d72a8e5dff0e6e9",
+            "id": "e6f4e8da5ad0f659",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "内核笔记.md",
-                "mode": "preview",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -64,13 +60,21 @@
               "type": "starred",
               "state": {}
             }
+          },
+          {
+            "id": "71ea39fbd61f1c06",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 230.5,
-    "collapsed": true
+    "width": 230.5
   },
   "right": {
     "id": "c583995b254f7fbc",
@@ -86,7 +90,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "内核笔记.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +106,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "内核笔记.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -125,9 +127,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "内核笔记.md"
-              }
+              "state": {}
             }
           }
         ],
@@ -146,35 +146,36 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "8d72a8e5dff0e6e9",
+  "active": "e6f4e8da5ad0f659",
   "lastOpenFiles": [
+    "Debian 11 上设置静态 IP 地址.md",
+    "samba 用户管理.md",
+    "apt 命令使用代理.md",
+    "未命名.md",
+    "分割commit 推送到远程仓库.md",
+    "git diff 生成patch 并应用.md",
+    "apt certificate verification failed.md",
+    "git 修剪分支.md",
+    "vscode 设置 compare view.md",
+    "git 修改配置文件.md",
+    "查看linux 版本信息 & 更改密码.md",
+    "常用软件安装列表.md",
+    "搭建clash 并且分享网络.md",
+    "钉钉无法输入中文.md",
+    "将token 添加到远程仓库链接中.md",
+    "内核内存管理.md",
+    "内核网络设备驱动.md",
+    "查看python 动态链接库地址.md",
+    "samba 分享文件.md",
+    "Markdown 速查表.md",
     "未命名 1.canvas",
     "未命名.canvas",
-    "内核笔记.md",
     "如何向服务器添加 ssh 公钥.md",
-    "查看linux 版本信息 & 更改密码.md",
     "apt-key 添加公钥.md",
     "Ubuntu 没有网络连接.md",
-    "查看python 动态链接库地址.md",
-    "钉钉无法输入中文.md",
     "ubuntu 设置虚拟显示器输出.md",
-    "git diff 生成patch 并应用.md",
     "git 打包仓库.md",
-    "Markdown 速查表.md",
-    "常用软件安装列表.md",
     "add-apt-repository 命令安装,卸载和使用.md",
-    "git 修剪分支.md",
-    "git 修改配置文件.md",
-    "git pull request.md",
-    "samba 用户使用.md",
-    "cloudflared 内网代理.md",
-    "c 预处理器.md",
-    "Ubuntu 彻底移除Snap.md",
-    "samba 分享文件.md",
-    "git 设置和取消代理.md",
-    "apt 命令使用代理.md",
-    "删除Ubunut Pro.md",
-    "搭建clash 并且分享网络.md",
     "未命名.md.nssyncsc",
     "template",
     "daily",

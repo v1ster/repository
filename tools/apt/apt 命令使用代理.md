@@ -24,5 +24,15 @@ export http_proxy
 source ~/.bashrc
 
 # 临时使用
-sudo apt -o Acquire::http::proxy="http://192.168.100.101:1080/" update
+sudo apt -o Acquire::http::proxy="http://192.168.137.1:7890/" update
 ```
+
+1.  Not signed - bullseye
+```shell
+sudo apt-get install -y wget
+source /etc/os-release
+export DISTRO="${VERSION_CODENAME}-stable"
+wget -O - apt.radxa.com/$DISTRO/public.key | sudo apt-key add -
+sudo apt-get update
+```
+

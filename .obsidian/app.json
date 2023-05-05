@@ -2,6 +2,6 @@
   "showFrontmatter": true,
   "strictLineBreaks": true,
   "showLineNumber": false,
-  "defaultViewMode": "preview",
+  "defaultViewMode": "source",
   "vimMode": false
 }

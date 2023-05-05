@@ -1,5 +1,5 @@
 ---
-title: samba 用户使用
+title: samba 用户管理
 date: 2023-04-14  
 tags: linux, tools
 ---

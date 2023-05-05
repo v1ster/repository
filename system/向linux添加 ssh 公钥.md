@@ -10,9 +10,12 @@ tags: linux
 #### wondows传输pub
 
 ```cmd
-type %USERPROFILE%.ssh\id_rsa.pub | ssh ubuntu@192.168.1.8 “cat >> .ssh/authorized_keys”
+type %USERPROFILE%\.ssh\id_rsa.pub | ssh ubuntu@192.168.1.8 “cat >> .ssh/authorized_keys”
 ```
 
+```powershell
+type $env:USERPROFILE\.ssh\id_rsa.pub | ssh root@192.168.30.31 "cat >> .ssh/authorized_keys"
+```
 #### linux
 ```shell
 ssh-copy-id -i ~/.ssh/id_rsa.pub YOUR_USER_NAME@IP_ADDRESS_OF_THE_SERVER
