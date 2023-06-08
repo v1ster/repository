@@ -35,7 +35,11 @@ qm importdisk 102 /var/lib/vz/template/iso//immortalwrt-x86-64-generic-ext4-comb
 
 ## 2.1.1 配置OpenWrt 网络
 
-1. 
+1. 修改IP 地址
+
+
+
+3. 打开网络接口,配置
 
 ## 2.2 下载最新的OpenClash
 
@@ -44,14 +48,30 @@ qm importdisk 102 /var/lib/vz/template/iso//immortalwrt-x86-64-generic-ext4-comb
 ## 2.3 [WIP]使用网络共享硬盘
 
 https://zhucebaike.com/samba-on-openwrt/
-
+https://bbs.shumeipan.com/topic/144
 ### 2.3.1 导入硬盘
 
 https://www.cnblogs.com/aozhejin/p/15863016.html
 
+```Shell
+
+ls /dev/disk/by-id
+
+qm set 102 --sata1 /dev/disk/by-id/ata-SanDisk_SSD_PLUS_1000GB_23115L800072-part5
+```
+
 ### 2.3.2 创建系统用户
 
 ### 2.3.3 创建Smaba 用户
+
+```Shell
+# 安装用户工具
+opkg install shadow-groupmod shadow-useradd
+# 创建用户并设置密码
+useradd -m smbusers && passwd smbusers
+# 修改用户所属组名称（创建用户同时会创建同名用户组。Windows 使用环境不允许用户和组使用相同名称）
+groupmod -n smbgroups smbusers
+```
 
 ### 2.3.4 Smaba 参数配置
 
@@ -67,6 +87,7 @@ https://opclash.com/luyou/159.html
 2. 附加选项添加,下载BT 磁力链接强制保存
 ```
 force-save=true
+seed-ratio=0.0
 ```
 3. aria2下载，提示RPC服务未连接
 需要开6800端口
