@@ -13,19 +13,19 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "repos/python 查看动态链接库地址.md",
+                "file": "repos/apt 命令使用代理.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "a4847fd672928359",
+            "id": "868dee2a56c20a4c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "python pip 设置代理.md",
+                "file": "查看python所支持的wheel包.md",
                 "mode": "source",
                 "source": false
               }
@@ -61,7 +61,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "python",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -107,7 +107,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "python pip 设置代理.md",
+                "file": "查看python所支持的wheel包.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -124,7 +124,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "python pip 设置代理.md",
+                "file": "查看python所支持的wheel包.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -147,7 +147,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "python pip 设置代理.md"
+                "file": "查看python所支持的wheel包.md"
               }
             }
           }
@@ -166,37 +166,37 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "a4847fd672928359",
+  "active": "868dee2a56c20a4c",
   "lastOpenFiles": [
-    "repos/python 查看动态链接库地址.md",
-    "python pip 设置代理.md",
+    "repos/apt 命令使用代理.md",
+    "查看python所支持的wheel包.md",
     "repos/git 设置和取消代理.md",
-    "repos/ssh 端口转发.md",
+    "repos/cloudflared 内网代理.md",
+    "python pip 设置代理.md",
+    "repos/设置静态 IP 地址.md",
+    "repos/ssh 向linux添加公钥.md",
+    "repos/ssh 添加使用私钥.md",
     "repos/ssh 设置代理.md",
     "repos/rock5b 设置记录.md",
-    "repos/ssh 向linux添加公钥.md",
-    "repos/apt 命令使用代理.md",
-    "repos/apt certificate verification failed.md",
-    "home.md",
     "分类.md",
-    "annex",
-    "repos/ssh 添加使用私钥.md",
-    "待完成.md",
-    "Markdown 速查表.md",
-    "Debian 11 上设置静态 IP 地址.md",
-    "samba 用户管理.md",
-    "apt 命令使用代理.md",
-    "分割commit 推送到远程仓库.md",
-    "git diff 生成patch 并应用.md",
-    "apt certificate verification failed.md",
-    "git 修剪分支.md",
-    "vscode 设置 compare view.md",
-    "git 修改配置文件.md",
+    "home.md",
+    "repos/ssh 端口转发.md",
+    "repos/git 打包仓库.md",
+    "repos/git 修改配置文件.md",
+    "repos/常用软件安装列表.md",
+    "repos/python 查看动态链接库地址.md",
+    "conflict-files-obsidian-git.md",
+    "钉钉无法输入中文.md",
+    "查看python 动态链接库地址.md",
     "查看linux 版本信息 & 更改密码.md",
-    "常用软件安装列表.md",
-    "搭建clash 并且分享网络.md",
-    "未命名 1.canvas",
     "未命名.canvas",
+    "未命名 1.canvas",
+    "搭建clash 并且分享网络.md",
+    "常用软件安装列表.md",
+    "将token 添加到远程仓库链接中.md",
+    "如何向服务器添加 ssh 公钥.md",
+    "删除Ubunut Pro.md",
+    "annex",
     "未命名.md.nssyncsc",
     "template",
     "daily",
