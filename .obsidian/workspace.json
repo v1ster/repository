@@ -4,35 +4,95 @@
     "type": "split",
     "children": [
       {
-        "id": "0bba9514252e31d5",
+        "id": "f6372ccdaa24f74c",
         "type": "tabs",
         "children": [
           {
-            "id": "e6f4e8da5ad0f659",
+            "id": "70e1e19c7497464e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "repos/apt 命令使用代理.md",
+                "file": "repos/python pip 设置代理.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "868dee2a56c20a4c",
+            "id": "99c5f7286b176d86",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "查看python所支持的wheel包.md",
+                "file": "repos/Markdown 速查表.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "2876c61dac8519fa",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "repos/python pip 设置代理.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "332a23991a0adf9d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "repos/Markdown 速查表.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "25384c79b06956a0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "repos/Gentoo Linux 安装指南.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "c5b0ec4ba97a9495",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "repos/Markdown 速查表.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "7c36adea5e545058",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "home.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -86,8 +146,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -107,7 +166,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "查看python所支持的wheel包.md",
+                "file": "home.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -124,7 +183,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "查看python所支持的wheel包.md",
+                "file": "home.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -147,7 +206,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "查看python所支持的wheel包.md"
+                "file": "home.md"
               }
             }
           }
@@ -166,36 +225,36 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "868dee2a56c20a4c",
+  "active": "7c36adea5e545058",
   "lastOpenFiles": [
-    "repos/apt 命令使用代理.md",
-    "查看python所支持的wheel包.md",
-    "repos/git 设置和取消代理.md",
-    "repos/cloudflared 内网代理.md",
-    "python pip 设置代理.md",
-    "repos/设置静态 IP 地址.md",
-    "repos/ssh 向linux添加公钥.md",
-    "repos/ssh 添加使用私钥.md",
-    "repos/ssh 设置代理.md",
-    "repos/rock5b 设置记录.md",
     "分类.md",
+    "待完成.md",
+    "repos/查看python所支持的wheel包.md",
+    "repos/python pip 设置代理.md",
+    "repos/Markdown 速查表.md",
+    "repos/Gentoo Linux 安装指南.md",
     "home.md",
-    "repos/ssh 端口转发.md",
-    "repos/git 打包仓库.md",
-    "repos/git 修改配置文件.md",
+    "repos/gentoo 源设置.md",
+    "repos/git  Merge vs Rebase.md",
+    "repos/c 文件IO.md",
+    "repos/c 预处理器.md",
+    "repos/apt-key 添加公钥.md",
+    "repos/apt certificate verification failed.md",
+    "repos/使用UEFI Shell引导U盘启动.md",
+    "repos/删除Ubunut Pro.md",
+    "repos/设置静态 IP 地址.md",
+    "repos/内核网络设备驱动.md",
+    "repos/内核内存管理.md",
+    "repos/钉钉无法输入中文.md",
+    "repos/搭建clash 并且分享网络.md",
     "repos/常用软件安装列表.md",
+    "repos/查看linux 版本信息 & 更改密码.md",
     "repos/python 查看动态链接库地址.md",
-    "conflict-files-obsidian-git.md",
-    "钉钉无法输入中文.md",
-    "查看python 动态链接库地址.md",
-    "查看linux 版本信息 & 更改密码.md",
+    "repos/OpenWrt 使用记录.md",
+    "repos/linux 用户使用.md",
+    "repos/gitea 部署记录.md",
     "未命名.canvas",
     "未命名 1.canvas",
-    "搭建clash 并且分享网络.md",
-    "常用软件安装列表.md",
-    "将token 添加到远程仓库链接中.md",
-    "如何向服务器添加 ssh 公钥.md",
-    "删除Ubunut Pro.md",
     "annex",
     "未命名.md.nssyncsc",
     "template",
