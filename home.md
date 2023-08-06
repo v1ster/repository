@@ -7,7 +7,7 @@ const nowTime = new Date();
 const restSec = nowTime.getTime() - setTime.getTime();
 const day = parseInt(restSec / (60*60*24*1000));
 
-const str =  day + "天啦 ^_^"
+const str =  day + "天 ^_^"
 
 dv.paragraph(str);
 
