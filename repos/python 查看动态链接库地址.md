@@ -7,6 +7,6 @@ tags: python linux WIP
 ```shell
 python3
 >>>	import sys
->>>	sys.patch
+>>>	sys.path
 [''， '/usr/lib/python310.zip'， '/usr/lib/python3.10'， '/usr/Lib/python3.10/Lib-dynload'， '/usr/local/lib/python3.10/dist-packages'， '/usr/lib/python3/dist-packages']
 ```

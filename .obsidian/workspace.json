@@ -4,15 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "de5ad7e8af7379dd",
+        "id": "855a8e6e16b7e8e4",
         "type": "tabs",
         "children": [
           {
-            "id": "d11e615d05d08e4b",
+            "id": "0b9a82458ac67c6c",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "repos/python 查看动态链接库地址.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -44,8 +48,8 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
-                "matchingCase": false,
+                "query": "python",
+                "matchingCase": true,
                 "explainSearch": false,
                 "collapseAll": false,
                 "extraContext": false,
@@ -69,7 +73,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -89,6 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "repos/python 查看动态链接库地址.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,6 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "repos/python 查看动态链接库地址.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -126,7 +133,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "repos/python 查看动态链接库地址.md"
+              }
             }
           }
         ],
@@ -144,34 +153,34 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "d11e615d05d08e4b",
+  "active": "0b9a82458ac67c6c",
   "lastOpenFiles": [
-    "repos/Markdown 速查表.md",
     "repos/python pip 设置代理.md",
-    "home.md",
     "repos/查看python所支持的wheel包.md",
-    "repos/Gentoo Linux 安装指南.md",
-    "repos/gentoo 源设置.md",
-    "repos/使用UEFI Shell引导U盘启动.md",
-    "分类.md",
+    "repos/ssh 端口转发.md",
+    "repos/ssh 向linux添加公钥.md",
+    "repos/ssh 添加使用私钥.md",
     "待完成.md",
-    "repos/git  Merge vs Rebase.md",
-    "repos/c 文件IO.md",
-    "repos/c 预处理器.md",
-    "repos/apt-key 添加公钥.md",
-    "repos/apt certificate verification failed.md",
-    "repos/删除Ubunut Pro.md",
+    "repos/Gentoo Linux 安装指南.md",
+    "home.md",
+    "repos/apt 命令使用代理.md",
+    "查看python所支持的wheel包.md",
+    "repos/使用UEFI Shell引导U盘启动.md",
+    "repos/gentoo 源设置.md",
+    "repos/Markdown 速查表.md",
+    "repos/git 设置和取消代理.md",
+    "repos/cloudflared 内网代理.md",
+    "python pip 设置代理.md",
     "repos/设置静态 IP 地址.md",
-    "repos/内核网络设备驱动.md",
-    "repos/内核内存管理.md",
-    "repos/钉钉无法输入中文.md",
-    "repos/搭建clash 并且分享网络.md",
+    "repos/ssh 设置代理.md",
+    "repos/rock5b 设置记录.md",
+    "分类.md",
+    "repos/git 打包仓库.md",
+    "repos/git 修改配置文件.md",
     "repos/常用软件安装列表.md",
-    "repos/查看linux 版本信息 & 更改密码.md",
     "repos/python 查看动态链接库地址.md",
-    "repos/OpenWrt 使用记录.md",
-    "repos/linux 用户使用.md",
-    "repos/gitea 部署记录.md",
+    "conflict-files-obsidian-git.md",
+    "钉钉无法输入中文.md",
     "未命名.canvas",
     "未命名 1.canvas",
     "annex",
