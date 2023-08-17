@@ -35,4 +35,3 @@ export DISTRO="${VERSION_CODENAME}-stable"
 wget -O - apt.radxa.com/$DISTRO/public.key | sudo apt-key add -
 sudo apt-get update
 ```
-
