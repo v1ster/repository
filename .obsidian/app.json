@@ -3,5 +3,8 @@
   "strictLineBreaks": true,
   "showLineNumber": false,
   "defaultViewMode": "source",
-  "vimMode": false
+  "vimMode": false,
+  "attachmentFolderPath": "annex",
+  "newFileLocation": "folder",
+  "newFileFolderPath": "repos"
 }
