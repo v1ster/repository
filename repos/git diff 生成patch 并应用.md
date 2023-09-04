@@ -15,11 +15,11 @@ git apply --directory=ipa_c dev1201.patch
 ###  修复尾随空白
 
 ``` Shell
-git apply --reject --whitespace=fix 
+git apply --reject --whitespace=fix  *.patch
 ```
 
 ### 通过commit 生成patch
 
 ``` Shell
- git format-patch 064c076cff2896e0a2bbb6af57415d74c055eff2 //HEAD~n
+ git format-patch 064c076cff2896e0a2bbb6af57415d74c055eff2 //HEAD~n commit
 ```
