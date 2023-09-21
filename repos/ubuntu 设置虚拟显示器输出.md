@@ -74,4 +74,5 @@ EndSection
 
 [ubuntu18.04安装虚拟显示器，不接显示器可远程桌面_AIchiNiurou的博客-CSDN博客_xrandr 不接显示器](https://blog.csdn.net/weixin_44523062/article/details/105405019)  
 [Ubuntu 20.04 虚拟显示器 1080P 配置](https://blog.csdn.net/zml66666/article/details/110434167)  
-[arch linux 显示器设置](https://wiki.archlinuxcn.org/wiki/Xorg#:~:text=Display%22%0A%20%20%20%20%20%20%20%20EndSubSection%0AEndSection-,%E5%A4%9A%E4%B8%AA%E6%98%BE%E7%A4%BA%E5%99%A8,-%5B%E7%BC%96%E8%BE%91%20%7C)
+[archlinux 显示器设置](https://wiki.archlinuxcn.org/wiki/Xorg#:~:text=Display%22%0A%20%20%20%20%20%20%20%20EndSubSection%0AEndSection-,%E5%A4%9A%E4%B8%AA%E6%98%BE%E7%A4%BA%E5%99%A8,-%5B%E7%BC%96%E8%BE%91%20%7C)
+[archlinux nvidia](https://wiki.archlinuxcn.org/wiki/NVIDIA)
