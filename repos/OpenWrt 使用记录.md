@@ -71,6 +71,9 @@ opkg install shadow-groupmod shadow-useradd
 useradd -m smbusers && passwd smbusers
 # 修改用户所属组名称（创建用户同时会创建同名用户组。Windows 使用环境不允许用户和组使用相同名称）
 groupmod -n smbgroups smbusers
+
+smbpasswd -a smbusers
+
 ```
 
 ### 2.3.4 Smaba 参数配置
@@ -144,3 +147,4 @@ config aria2 'main'
 - [用这些 OpenWRT 插件来武装你的路由器](https://zhuanlan.zhihu.com/p/103121214)
 - [在PVE中，给虚拟机挂载独立的硬盘](https://bbs.shumeipan.com/topic/144)
 - [PVE虚拟机的安装](https://www.benzhu.xyz/pve/)
+- [OpenWrt搭建文件共享服务——基于samba](https://blog.csdn.net/a791693310/article/details/84584680)
