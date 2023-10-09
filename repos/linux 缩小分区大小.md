@@ -21,3 +21,6 @@ e2fsck -f /dev/sda1
 # 参考
 
 [无损调整EXT4分区大小](https://blog.pinkd.moe/linux/2018/01/31/resize-a-ext4-partiton-safely "无损调整EXT4分区大小")
+[ 在终端下调整ext4文件系统的大小](https://blog.colorfulshark.net/2019/12/29/how-to-resize-ext4-filesystem.html)
+[ProxmoxVE(PVE) 减小缩减虚拟机硬盘设置的空间大小](https://mayanpeng.cn/archives/158.html)
+[Resize disks](https://pve.proxmox.com/wiki/Resize_disks)
