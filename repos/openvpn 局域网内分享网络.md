@@ -2,7 +2,7 @@
 title: openvpn 局域网内分享网络
 date: 2023-10-08
 tags:
-  - WIP
+  - linux
 ---
 # Brief 
 
@@ -33,4 +33,3 @@ iptables -t nat -A POSTROUTING -s 192.168.0.0/24 -j SNAT --to-source 192.168.1.4
 
 - [Adding a permanent static route](https://wiki.gentoo.org/wiki/Static_routing)
 - [使用openv屁恩实现办公室和IDC机房互通](https://www.cnblogs.com/huangweimin/articles/7712771.html)
-- 
