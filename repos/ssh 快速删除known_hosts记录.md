@@ -6,6 +6,20 @@ tags:
 ---
 ```
 ssh-keygen -R 192.168.0.10
+
+ssh-keygen -R [hostname]
+
+ssh-keygen -R [ip_address]
+
+ssh-keygen -R [hostname],[ip_address]
+
+ssh-keyscan -t rsa [hostname],[ip_address] >> ~/.ssh/known_hosts
+
+ssh-keyscan -t rsa [ip_address] >> ~/.ssh/known_hosts
+
+ssh-keyscan -t rsa [hostname] >> ~/.ssh/known_hosts
+
+
 ```
 
 # 参考
