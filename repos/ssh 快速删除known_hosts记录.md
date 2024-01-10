@@ -19,7 +19,6 @@ ssh-keyscan -t rsa [ip_address] >> ~/.ssh/known_hosts
 
 ssh-keyscan -t rsa [hostname] >> ~/.ssh/known_hosts
 
-
 ```
 
 # 参考
