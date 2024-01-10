@@ -6,5 +6,6 @@
   "vimMode": false,
   "attachmentFolderPath": "annex",
   "newFileLocation": "folder",
-  "newFileFolderPath": "repos"
+  "newFileFolderPath": "repos",
+  "promptDelete": false
 }
