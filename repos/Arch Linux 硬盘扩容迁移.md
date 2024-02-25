@@ -2,7 +2,7 @@
 title: Arch Linux 硬盘扩容
 date: 2024-02-25 8
 tags:
-  - WIP
+  - linux
 ---
 正常分区后,使用rsync 同步分区内容
 
