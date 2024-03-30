@@ -26,7 +26,7 @@ dv.paragraph(
 
 ```dataview
 table tags, date
-from "repos" 
+from "docs/posts" 
 sort date DESC
 ```
 
