@@ -7,7 +7,7 @@ theme:
   name: material
   # custom_dir: overrides
   icon: 
-    logo: material/numeric-9-box
+    logo: material/arrow-bottom-right-thick
     features:
     - content.code.copy
     - navigation.sections
