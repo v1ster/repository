@@ -1,7 +1,9 @@
 ---
 title: samba 分享文件
-date: 2023-04-14  
-tags: linux tools
+date: 2023-04-14
+tags:
+  - linux
+  - tool
 ---
 
 ### 挂载硬盘

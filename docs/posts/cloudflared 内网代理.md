@@ -1,7 +1,9 @@
 ---
 title: cloudflared 内网代理
 date: 2023-04-13
-tags: linux tools
+tags:
+  - linux
+  - tool
 ---
 
 ## cloudflared故障解决

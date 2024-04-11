@@ -2,7 +2,7 @@
 title: windows 中添加右键菜单 - 在vscode 中打开
 date: 2024-01-04
 tags:
-  - tools
+  - tool
 ---
 1. `win+r` 输入regedit, 打开注册表
 2. 打开文件夹, 找到 `HKEY_CLASSES_ROOT\Directory\shell` 目录

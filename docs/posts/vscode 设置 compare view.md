@@ -1,7 +1,9 @@
 ---
 title: vscode 设置 compare view
-date: 2023-05-10  
-tags: vscode tools
+date: 2023-05-10
+tags:
+  - vscode
+  - tool
 ---
 
 1. 选择左边比较文件

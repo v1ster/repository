@@ -1,7 +1,9 @@
 ---
-title: 搭建clash 并且分享网络  
-date: 2023-04-12  
-tags: linux tools
+title: 搭建clash 并且分享网络
+date: 2023-04-12
+tags:
+  - linux
+  - tool
 ---
 
 ### 下载&安装clash

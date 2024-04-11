@@ -1,7 +1,9 @@
 ---
 title: samba 用户管理
-date: 2023-04-14  
-tags: linux tools
+date: 2023-04-14
+tags:
+  - linux
+  - tool
 ---
 
 ### ubuntu下共享文件夹密码设置和重置
