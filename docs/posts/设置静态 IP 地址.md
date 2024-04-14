@@ -1,7 +1,8 @@
 ---
 title: 设置静态 IP 地址
-date: 2023-05-06  
-tags: linux system debian
+date: 2023-05-06
+tags:
+  - linux
 ---
 
 # 使用终端 设置静态IP

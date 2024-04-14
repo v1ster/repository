@@ -1,7 +1,9 @@
 ---
 title: ssh 添加使用私钥
-date: 2023-07-08  
-tags: ssh
+date: 2023-07-08
+tags:
+  - ssh
+  - tool
 ---
 
 # brief

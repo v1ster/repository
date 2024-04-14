@@ -1,7 +1,9 @@
 ---
 title: git  Merge vs Rebase
-date: 2023-04-14  
-tags: git
+date: 2023-04-14
+tags:
+  - git
+  - tool
 ---
 
 #### 参考

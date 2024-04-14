@@ -1,7 +1,8 @@
 ---
 title: rock5b 设置记录
-date: 2023-05-29  
-tags: linux system
+date: 2023-05-29
+tags:
+  - linux
 ---
 1. 设置用户自动登陆桌面
 ```Shell

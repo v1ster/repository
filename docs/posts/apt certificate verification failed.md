@@ -1,7 +1,9 @@
 ---
 title: apt certificate verification failed
-date: 2023-05-10  
-tags: debian apt
+date: 2023-05-10
+tags:
+  - apt
+  - tool
 ---
 
 ```shell

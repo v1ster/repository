@@ -1,7 +1,8 @@
 ---
 title: c 文件IO
-date: 2023-05-23  
-tags: linux code cheatsheet
+date: 2023-05-23
+tags:
+  - cheatsheet
 ---
 
 **标准文件描述符** 

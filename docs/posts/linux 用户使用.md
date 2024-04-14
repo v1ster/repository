@@ -3,7 +3,6 @@ title: linux 用户使用
 date: 2023-06-19
 tags:
   - linux
-  - tool
 ---
 
 ### 查看用户组

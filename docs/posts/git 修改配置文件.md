@@ -1,7 +1,9 @@
 ---
 title: git 修改配置文件
-date: 2023-04-14  
-tags: git
+date: 2023-04-14
+tags:
+  - git
+  - tool
 ---
 
 ```Shell

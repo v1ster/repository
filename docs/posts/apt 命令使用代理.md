@@ -1,7 +1,9 @@
 ---
 title: apt 命令使用代理
-date: 2023-04-14  
-tags: debian apt
+date: 2023-04-14
+tags:
+  - apt
+  - tool
 ---
 
 ```Shell

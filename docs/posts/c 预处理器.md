@@ -1,7 +1,8 @@
 ---
 title: c 预处理器
-date: 2023-04-14  
-tags: code cheatsheet
+date: 2023-04-14
+tags:
+  - cheatsheet
 ---
 
 #### 内置宏

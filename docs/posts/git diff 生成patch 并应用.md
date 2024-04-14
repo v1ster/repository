@@ -1,7 +1,9 @@
 ---
 title: git diff 生成patch 并应用
-date: 2023-04-14  
-tags: git
+date: 2023-04-14
+tags:
+  - git
+  - tool
 ---
 
 ```Shell

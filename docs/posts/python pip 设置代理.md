@@ -1,7 +1,9 @@
 ---
 title: python pip 设置代理
-date: 2023-07-24  
-tags: WIP code
+date: 2023-07-24
+tags:
+  - WIP
+  - tool
 ---
 
 # pip 设置代理

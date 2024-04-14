@@ -1,7 +1,9 @@
 ---
 title: git分割commit 推送到远程仓库
-date: 2023-05-10  
-tags: git 
+date: 2023-05-10
+tags:
+  - git
+  - tool
 ---
 
 ```Shell

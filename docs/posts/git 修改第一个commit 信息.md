@@ -1,7 +1,9 @@
 ---
 title: git 修改第一个commit 信息
-date: 2023-08-22  
-tags: git
+date: 2023-08-22
+tags:
+  - git
+  - tool
 ---
 
 

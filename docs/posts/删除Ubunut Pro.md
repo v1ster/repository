@@ -1,7 +1,9 @@
 ---
 title: 删除Ubunut Pro
 date: 2023-04-12
-tags: linux system WIP
+tags:
+  - linux
+  - WIP
 ---
 
 ### 参考

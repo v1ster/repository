@@ -1,7 +1,8 @@
 ---
 title: 查看python所支持的wheel包
-date: 2023-08-03  
-tags: python
+date: 2023-08-03
+tags:
+  - tool
 ---
 ``` shell
 pi@testpi2:~ $ python

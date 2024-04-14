@@ -1,7 +1,10 @@
 ---
 title: git pull request
-date: 2023-04-19  
-tags: git WIP
+date: 2023-04-19
+tags:
+  - git
+  - WIP
+  - tool
 ---
 
 ### 参考

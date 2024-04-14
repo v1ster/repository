@@ -1,7 +1,9 @@
 ---
 title: git 分块推送
-date: 2023-06-14  
-tags: git
+date: 2023-06-14
+tags:
+  - git
+  - tool
 ---
 
 ```Shell

@@ -1,7 +1,9 @@
 ---
 title: git 合并commit
-date: 2023-04-19  
-tags: git
+date: 2023-04-19
+tags:
+  - git
+  - tool
 ---
 
 ```Shell

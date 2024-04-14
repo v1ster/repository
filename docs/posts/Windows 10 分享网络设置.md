@@ -2,7 +2,7 @@
 title: Windows 10 分享网络设置
 date: 2023-11-09
 tags:
-  - system
+  - windows
 ---
 # windows
 

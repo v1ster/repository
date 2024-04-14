@@ -1,7 +1,9 @@
 ---
 title: apt-key 添加公钥
-date: 2023-04-14  
-tags: debian apt
+date: 2023-04-14
+tags:
+  - apt
+  - tool
 ---
 
 检索 key 并添加 key :

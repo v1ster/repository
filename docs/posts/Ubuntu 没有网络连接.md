@@ -1,7 +1,8 @@
 ---
 title: Ubuntu 没有网络连接
-date: 2023-04-18  
-tags: linux system
+date: 2023-04-18
+tags:
+  - linux
 ---
 
 ```Shell

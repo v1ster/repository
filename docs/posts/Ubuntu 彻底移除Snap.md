@@ -1,7 +1,8 @@
 ---
 title: Ubuntu 彻底移除Snap
-date: 2023-04-18  
-tags: linux system
+date: 2023-04-18
+tags:
+  - linux
 ---
 
 ### 彻底移除Snap

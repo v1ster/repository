@@ -1,7 +1,9 @@
 ---
 title: git 设置和取消代理
-date: 2023-04-14  
-tags: git linux
+date: 2023-04-14
+tags:
+  - git
+  - tool
 ---
 
 ```Shell

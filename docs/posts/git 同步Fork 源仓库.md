@@ -1,7 +1,9 @@
 ---
 title: git 同步Fork 源仓库
-date: 2023-04-14  
-tags: git
+date: 2023-04-14
+tags:
+  - git
+  - tool
 ---
 
 ### 1. 配置上游仓库地址

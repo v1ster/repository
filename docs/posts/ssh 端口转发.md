@@ -1,7 +1,9 @@
 ---
 title: ssh 端口转发
-date: 2023-06-08  
-tags: ssh 
+date: 2023-06-08
+tags:
+  - ssh
+  - tool
 ---
 
 # 1. SSH 端口转发

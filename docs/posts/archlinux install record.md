@@ -1,7 +1,9 @@
 ---
 title: archlinux install record
-date: 2023-07-08  
-tags: system WIP
+date: 2023-07-08
+tags:
+  - WIP
+  - linux
 ---
 
 # 安装linux

@@ -3,7 +3,6 @@ title: wireguard 部署记录
 date: 2023-09-17
 tags:
   - linux
-  - system
 ---
 ## 网络类型
 

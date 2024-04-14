@@ -1,7 +1,8 @@
 ---
 title: 使用UEFI Shell引导U盘启动
-date: 2023-08-06  
-tags: system
+date: 2023-08-06
+tags:
+  - tool
 ---
 
 首先确认你的主板集成的UEFI自带Shell模式，一般开机时按F2即可进入Shell模式，或者在bios中选择引导，待出现”shell”提示符时即表明你已进入efi shell环境中。

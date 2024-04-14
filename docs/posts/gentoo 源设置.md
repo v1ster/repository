@@ -1,7 +1,8 @@
 ---
 title: gentoo 源设置
-date: 2023-08-06  
-tags: system
+date: 2023-08-06
+tags:
+  - linux
 ---
 
 在`/etc/portage/make.conf` 中添加:

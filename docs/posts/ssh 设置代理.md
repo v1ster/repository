@@ -1,7 +1,9 @@
 ---
 title: ssh 设置代理
-date: 2023-07-17  
-tags: ssh  
+date: 2023-07-17
+tags:
+  - ssh
+  - tool
 ---
 
 ```Shell

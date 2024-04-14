@@ -1,7 +1,9 @@
 ---
 title: ssh 如何向服务器添加公钥
-date: 2023-04-28  
-tags: ssh
+date: 2023-04-28
+tags:
+  - ssh
+  - tool
 ---
 
 
