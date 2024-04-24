@@ -113,6 +113,24 @@ http://192.168.1.3:3000
 
 ```
 
+# trubleshooting 
+
+```shell
+(.venv) [mars@mapc ~/workspace/pyground/encrypted_bin]$ git push upstream master
+Enumerating objects: 21, done.
+Counting objects: 100% (21/21), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (19/19), done.
+Writing objects: 100% (21/21), 222.82 KiB | 4.55 MiB/s, done.
+Total 21 (delta 6), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: env: bash: No such file or directory
+To 192.168.1.3:workspace/encrypted_bin.git
+ ! [remote rejected] master -> master (pre-receive hook declined)
+error: failed to push some refs to '192.168.1.3:workspace/encrypted_bin.git'
+# freebse 没有bash, 需要手动安装 
+sudo pkg install bash
+```
+
 # 参考
 
 [在 FreeBSD 12 上安装 Gitea](https://www.cnblogs.com/Gitea/p/setup-gitea-on-freebsd.html)
