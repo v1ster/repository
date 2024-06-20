@@ -1,12 +1,14 @@
 ---
 title: OpenWrt 使用记录
-date: 2023-05-28  
-tags: linux WIP
+date: 2023-05-28
+tags:
+    - linux
+    - WIP
 ---
 
 # 1. 安装PVE 配置网络
 
-## 1.1 下载& 安装PVE 
+## 1.1 下载& 安装PVE
 
 - 下载[PVE 下载地址](https://pve.proxmox.com/wiki/Downloads#Proxmox_Virtual_Environment_7.4_.28ISO_Image.29)
 -  使用 [Ventoy](https://www.ventoy.net/en/index.html)安装PVE
@@ -97,21 +99,21 @@ seed-ratio=0.0
 ```
 nano /etc/config/aria2
 
-config aria2 'main'  
-	option bt_enable_lpd 'true' 
-	option enable_dht 'true'  
-	option follow_torrent 'true'  
-	option file_allocation 'none'  
+config aria2 'main'
+	option bt_enable_lpd 'true'
+	option enable_dht 'true'
+	option follow_torrent 'true'
+	option file_allocation 'none'
 	option save_session_interval '30'
 	list header ''
-	list extra_settings ''  
-	option enabled '1'  
-	option rpc_listen_port '6800'  
-	option config_dir '/mnt/sda3/aria2'  这个路径按自己的改一下  
-	option dir '/mnt/sda3/download'  这个路径按自己的改一下  
-	option enable_log 'true'  
-	option log_level 'debug'  
-	option rpc_auth_method 'none'  
+	list extra_settings ''
+	option enabled '1'
+	option rpc_listen_port '6800'
+	option config_dir '/mnt/sda3/aria2'  这个路径按自己的改一下
+	option dir '/mnt/sda3/download'  这个路径按自己的改一下
+	option enable_log 'true'
+	option log_level 'debug'
+	option rpc_auth_method 'none'
 	option user 'root'
 ```
 4. openwrt 关于网页设置Aria2出现一个或多个必选项值为空
@@ -120,20 +122,20 @@ config aria2 'main'
 nano /etc/config/aria2
 
 config aria2 'main'
-	option bt_enable_lpd 'true' 
-	option enable_dht 'true' 
+	option bt_enable_lpd 'true'
+	option enable_dht 'true'
 	option follow_torrent 'true'
-	option file_allocation 'none' 
-	option save_session_interval '30' 
-	list header '' 
-	list extra_settings '' 
-	option enabled '1' 
-	option rpc_listen_port '6800' 
-	option config_dir '/mnt/sda3/aria2' 
-	option dir '/mnt/sda3/download' 
-	option enable_log 'true' 
-	option log_level 'debug' 
-	option rpc_auth_method 'none' 
+	option file_allocation 'none'
+	option save_session_interval '30'
+	list header ''
+	list extra_settings ''
+	option enabled '1'
+	option rpc_listen_port '6800'
+	option config_dir '/mnt/sda3/aria2'
+	option dir '/mnt/sda3/download'
+	option enable_log 'true'
+	option log_level 'debug'
+	option rpc_auth_method 'none'
 	option user 'root'
 ```
 

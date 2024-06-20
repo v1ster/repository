@@ -1,10 +1,14 @@
 ---
 title: 在 FreeBSD 13 上安装 gitea
-date: 2024-04-24 17
+date: 2024-04-24
 tags:
   - tool
 ---
-# 操作
+
+# 在 FreeBSD 13 上安装 gitea
+
+## 操作
+
 ```Shell
 # 安装git
 sudo pkg install git git-lfs
@@ -113,7 +117,7 @@ http://192.168.1.3:3000
 
 ```
 
-# trubleshooting 
+# trubleshooting
 
 ```shell
 (.venv) [mars@mapc ~/workspace/pyground/encrypted_bin]$ git push upstream master
@@ -127,7 +131,7 @@ remote: env: bash: No such file or directory
 To 192.168.1.3:workspace/encrypted_bin.git
  ! [remote rejected] master -> master (pre-receive hook declined)
 error: failed to push some refs to '192.168.1.3:workspace/encrypted_bin.git'
-# freebse 没有bash, 需要手动安装 
+# freebse 没有bash, 需要手动安装
 sudo pkg install bash
 ```
 

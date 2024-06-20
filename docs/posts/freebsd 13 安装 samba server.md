@@ -1,10 +1,13 @@
 ---
 title: freebsd 13 安装 samba server
-date: 2024-04-11 15
+date: 2024-04-11
 tags:
   - tool
 ---
-# 内核优化
+
+# freebsd 13 安装 samba server
+
+## 内核优化
 
  Edit `/etc/sysctl.conf`
 
@@ -30,15 +33,15 @@ kldload aio
 ## Installation
 
 ```
-pkg search samba4  
-samba413-4.13.17_8             Free SMB/CIFS and AD/DC server and client for Unix  
+pkg search samba4
+samba413-4.13.17_8             Free SMB/CIFS and AD/DC server and client for Unix
 samba416-4.16.11_2             Free SMB/CIFS and AD/DC server and client for Unix
 sudo pkg install samba416
 ```
 
 ## Config
 
-create a file called `/usr/local/etc/smb4.conf` 
+create a file called `/usr/local/etc/smb4.conf`
 
 ```
 [global]
@@ -74,5 +77,5 @@ You are prompted to enter a password which will be used to authenticate against 
 
 # 参考
 
-[Samba fileserver on FreeBSD (Update FreeBSD 12)](https://www.davd.io/samba-fileserver-on-freebsd/) 
+[Samba fileserver on FreeBSD (Update FreeBSD 12)](https://www.davd.io/samba-fileserver-on-freebsd/)
 [How-To: Setup NFS and Samba on FreeBSD 13](https://blog.vulnifo.com/2021/09/17/how-to-setup-nfs-and-samba-on-freebsd-13/)

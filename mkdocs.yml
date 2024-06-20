@@ -1,33 +1,36 @@
-site_name: My Docs
-# site_author: mars
+site_name: James's Blog
+site_author: James McGill
 repo_url: https://github.com/v1ster/repository
 repo_name: v1ster/repository
 
 theme:
   name: material
-  # custom_dir: overrides
-  icon: 
-    logo: material/arrow-bottom-right-thick
-    features:
+  icon:
+    # logo: assets/
+    logo: octicons/plug-16
+    repo: simple/github
+  palette:
+    scheme: slate
+    primary: black
+    accent: lime
+  features:
     - content.code.copy
     - navigation.sections
     - navigation.instant
-  palette: 
-    - scheme: default
-      toggle:
-        icon: material/theme-light-dark
-        name: Switch to dark mode
-    - scheme: slate
-      toggle:
-        icon: material/theme-light-dark
-        name: Switch to light mode
-
+    # - navigation.tabs
+    # - navigation.tabs.sticky
+    - navigation.path
+    - navigation.indexes
+    - navigation.top
 plugins:
   - search
-  - tags
+  - tags:
+      tags_file: blog/tags.md
+
   - blog:
       blog_dir: .
       post_url_format: "{slug}"
+
 
 markdown_extensions:
   - admonition
@@ -46,8 +49,11 @@ markdown_extensions:
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
-  - pymdownx.tabbed: 
+  - pymdownx.tabbed:
       alternate_style: true
 
 nav:
   - index.md
+  - blog/tags.md
+  - Blog:
+    - blog/index.md

@@ -3,8 +3,8 @@ title: v2ray一键脚本收集整理
 category:
   - v2ray
 tags:
-  linux
-abbrlink: a5cb4d7f  
+  - linux
+abbrlink: a5cb4d7f
 date: 2018-03-06
 ---
 

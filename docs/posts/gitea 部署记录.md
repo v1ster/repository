@@ -1,7 +1,10 @@
 ---
 title: gitea 部署记录
-date: 2023-06-27  
-tags: tool git WIP
+date: 2023-06-27
+tags:
+    - tool
+    - git
+    - WIP
 ---
 
 # 参考

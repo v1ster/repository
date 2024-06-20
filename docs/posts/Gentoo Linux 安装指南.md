@@ -1,7 +1,8 @@
 ---
 title: Gentoo Linux 安装指南
-date: 2023-08-06  
-tags: WIP
+date: 2023-08-06
+tags:
+    - WIP
 ---
 
 

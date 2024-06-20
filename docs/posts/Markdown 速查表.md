@@ -1,18 +1,19 @@
 ---
 title: Markdown 速查表
-date: 2023-04-19  
-tags: cheatsheet
+date: 2023-04-19
+tags:
+    - cheatsheet
 ---
 
 ## Obsidian 语法
 
 - *斜体*  _斜体_
 - **粗体**  __粗体__
-- *__粗斜体__* 
+- *__粗斜体__*
 - ~~删除线~~
-- `行内代码` 
+- `行内代码`
 - ==文版高亮==
-- 脚注, [^脚注] 
+- 脚注, [^脚注]
 
 ## Markdown 速查表
 
@@ -32,13 +33,13 @@ These are the elements outlined in John Gruber’s original design document. All
 ## H2
 
 ### H3
-  
+
 ### Bold
 
 **bold text**
-  
+
 ### Italic
-  
+
 *italicized text*
 
 ### Blockquote
@@ -66,12 +67,12 @@ These are the elements outlined in John Gruber’s original design document. All
 ---
 
 ### Link
-  
+
 [Markdown Guide](https://www.markdownguide.org)
 
 ### Image
 
-  
+
 
 ![alt text](https://www.markdownguide.org/assets/images/tux.png)
 
@@ -81,13 +82,13 @@ These are the elements outlined in John Gruber’s original design document. All
 
 ### Table
 
-  
+
 
 | Syntax | Description |
 | ----------- | ----------- |
 | Header | Title |
 | Paragraph | Text |
-  
+
 
 ### Fenced Code Block
 
@@ -98,7 +99,7 @@ These are the elements outlined in John Gruber’s original design document. All
   "age": 25
 }
 ```
-  
+
 ### Footnote
 
 Here's a sentence with a footnote. [^1]
@@ -147,5 +148,5 @@ X^2^
 - [格式化你的笔记](https://publish.obsidian.md/help-zh/%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%BD%A0%E7%9A%84%E7%AC%94%E8%AE%B0)
 
 
-[^脚注]: 这是一个脚注! 
+[^脚注]: 这是一个脚注!
 [^1]: This is the footnote.

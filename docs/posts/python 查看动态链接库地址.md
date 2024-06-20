@@ -1,7 +1,10 @@
 ---
 title: python 查看动态链接库地址
-date: 2023-04-28  
-tags: python linux WIP
+date: 2023-04-28
+tags:
+    - python
+    - linux
+    - WIP
 ---
 
 ```shell

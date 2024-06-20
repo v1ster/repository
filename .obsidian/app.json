@@ -4,8 +4,8 @@
   "showLineNumber": false,
   "defaultViewMode": "source",
   "vimMode": false,
-  "attachmentFolderPath": "annex",
+  "attachmentFolderPath": "assets",
   "newFileLocation": "folder",
-  "newFileFolderPath": "docs/posts",
+  "newFileFolderPath": "WIP",
   "promptDelete": false
 }
