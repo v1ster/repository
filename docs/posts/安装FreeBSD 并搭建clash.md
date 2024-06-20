@@ -4,11 +4,12 @@ date: 2024-02-17
 tags:
   - WIP
 ---
-# 安装
+# 安装FreeBSD 并搭建clash
+## 安装
 
 ## 下载
 
-
+WIP
 
 ## 安装参考
 

@@ -29,8 +29,10 @@ plugins:
 
   - blog:
       blog_dir: .
-      post_url_format: "{slug}"
-
+      post_url_format: "{categories}/{slug}"
+      archive_date_format: yyyy/MM
+      archive_url_date_format: yyyy/qq
+      archive_url_format: "archive/{date}"
 
 markdown_extensions:
   - admonition
@@ -55,5 +57,3 @@ markdown_extensions:
 nav:
   - index.md
   - blog/tags.md
-  - Blog:
-    - blog/index.md

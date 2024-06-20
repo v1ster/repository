@@ -4,8 +4,12 @@
   "showLineNumber": false,
   "defaultViewMode": "source",
   "vimMode": false,
-  "attachmentFolderPath": "assets",
+  "attachmentFolderPath": "docs/assets",
   "newFileLocation": "folder",
   "newFileFolderPath": "WIP",
-  "promptDelete": false
+  "promptDelete": false,
+  "userIgnoreFilters": [
+    "site/",
+    "docs/assets/"
+  ]
 }
