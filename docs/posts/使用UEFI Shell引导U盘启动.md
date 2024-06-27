@@ -18,6 +18,6 @@ cd EFI\Boot（进入引导目录，查看引导文件）
 BOOTX64.efi（直接运行uefi可执行程序）
 ```
 
-# 参考
+## 参考
 
 - [使用UEFI Shell引导U盘启动](https://blog.csdn.net/asxcdfv/article/details/104950248)

@@ -50,7 +50,7 @@ git merge upstream/main
 >  1 file changed, 3 insertions(+), 2 deletions(-)
 ```
 
-### 参考
+## 参考
 
 1. [syncing a fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork)
 2. [gitlab或github下fork后如何同步源的新更新内容？](https://www.zhihu.com/question/28676261)

@@ -4,5 +4,7 @@ date: 2024-04-14
 tags:
   - tool
 ---
-# 参考
-# [history isn't preserved in zsh](https://unix.stackexchange.com/questions/389881/history-isnt-preserved-in-zsh)
+
+## 参考
+
+[history isn't preserved in zsh](https://unix.stackexchange.com/questions/389881/history-isnt-preserved-in-zsh)

@@ -25,13 +25,13 @@ sudo add-apt-repositry ppa:xxxxxxx
 1. 使用software & update 移除
 software & updates -> other software -> 选择PPA 仓库点击remove
 2. 使用Terminal 删除
-```shell 
+```shell
 # 通常我们使用以下指令加入PPA :
 sudo add-apt-repository "PPA_YOU_NEED"
 # 要删除只需要后方接上remove 参数:
 sudo add-apt-repository --remove "PPA_YOU_NEED"
 
-# 手动删除PPA 
+# 手动删除PPA
 # 首先显示安装的PPA
 sudo ls /etc/apt/sources.list.d/ -l
 总计 12
@@ -52,7 +52,8 @@ sudo ppa-purge "PPA_YOU_WANT_TO_REMOVE"
 sudo ppa-purge http://ppa.launchpad.net/nginx/stable/ubuntu
 ```
 
-### 参考
+## 参考
+
 - [如何移除不要的 PPA 倉庫](https://clay-atlas.com/blog/2021/05/29/linux-cn-add-apt-repository-command-not-found/)
 - [add-apt-repository: command not found](https://clay-atlas.com/blog/2021/05/29/linux-cn-add-apt-repository-command-not-found/)
 - [如何在Ubuntu/Debian中添加Apt仓库](https://www.myfreax.com/how-to-add-apt-repository-in-ubuntu/)

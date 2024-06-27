@@ -33,7 +33,7 @@ sudo chmod 600 ~/.ssh/mars_rsa
 
 ```
 
-# 参考
+## 参考
 
 - [ssh密钥文件的权限](https://blog.51cto.com/merrycheng/1340280)
 - [Signing Failed: Agent Refused Operation](https://www.shellhacks.com/signing-failed-agent-refused-operation-solved/)

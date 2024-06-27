@@ -87,6 +87,6 @@ Caddy 配置文件路径：/etc/caddy/Caddyfile
 V2Ray 客户端配置文件解压密码为 233blog.com，SOCKS 监听端口为 2333， HTTP 监听端口为 6666
 可能某些 V2Ray 客户端的选项或描述略有不同，但事实上，此脚本显示的 V2Ray 配置信息已经足够详细，由于客户端的不同，请对号入座。
 
-### 参考
+## 参考
 
 -  [v2ray一键脚本收集整理](https://github.com/sharkyzh/MyBlogResources/blob/2088fcb923e93f5e50a58f0da854fe09965be4d4/source/_posts/v2ray%E4%B8%80%E9%94%AE%E8%84%9A%E6%9C%AC%E6%94%B6%E9%9B%86%E6%95%B4%E7%90%86.md)

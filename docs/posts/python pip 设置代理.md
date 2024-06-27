@@ -2,7 +2,8 @@
 title: python pip 设置代理
 date: 2023-07-24
 tags:
-  - WIP
+  - python
+category:
   - tool
 ---
 
@@ -14,6 +15,6 @@ pip install pandas --proxy=http://127.0.0.1:7890
 ```
 
 
-# 参考
+## 参考
 
  - [python设置代理和添加镜像源介绍](https://www.cnblogs.com/bonheur/p/12306108.html)

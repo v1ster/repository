@@ -24,7 +24,7 @@ sudo apt autoremove --purge snapd
 无法删除firefox[^1]
 ```Shell
 sudo systemctl stop var-snap-firefox-common-host\\x2dhunspell.mount
-sudo systemctl disable var-snap-firefox-common-host\\x2dhunspell.mount 
+sudo systemctl disable var-snap-firefox-common-host\\x2dhunspell.mount
 snap remove --purge firefox
 ```
 
@@ -76,7 +76,7 @@ EOL
 安装桌面环境
 ```Shell
 sudo apt update
-sudo apt install ubuntu-desktop  
+sudo apt install ubuntu-desktop
 # or
 sudo apt install ubuntu-desktop-minimal
 # 安装 Gnome 软件商店
@@ -109,6 +109,6 @@ sudo snap install snap-store
 sudo apt install firefox
 ```
 
-### 参考
+## 参考
 
 - [Completely remove firefox snap package](https://askubuntu.com/questions/1414173/completely-remove-firefox-snap-package)

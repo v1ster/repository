@@ -11,7 +11,7 @@ tags:
 REMOTE=origin
 BRANCH=$(git rev-parse --abbrev-ref HEAD)
 BATCH_SIZE=500
-  
+
 # check if the branch exists on the remote
 if git show-ref --quiet --verify refs/remotes/$REMOTE/$BRANCH; then
     # if so, only push the commits that are not on the remote already
@@ -23,7 +23,7 @@ fi
 
 # count the number of commits to push
 n=$(git log --first-parent --format=format:x $range | wc -l)
-  
+
 # push each batch
 for i in $(seq $n -$BATCH_SIZE 1); do
     # get the hash of the commit to push
@@ -36,6 +36,6 @@ done
 git push $REMOTE HEAD:refs/heads/$BRANCH
 ```
 
-# 参考
+## 参考
 
 - [Github remote push pack size exceeded](https://stackoverflow.com/questions/15125862/github-remote-push-pack-size-exceeded)

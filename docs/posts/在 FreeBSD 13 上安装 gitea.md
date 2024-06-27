@@ -137,6 +137,6 @@ error: failed to push some refs to '192.168.1.3:workspace/encrypted_bin.git'
 sudo pkg install bash
 ```
 
-# 参考
+## 参考
 
 [在 FreeBSD 12 上安装 Gitea](https://www.cnblogs.com/Gitea/p/setup-gitea-on-freebsd.html)

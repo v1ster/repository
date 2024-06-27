@@ -25,7 +25,7 @@ ln -s /usr/bin/vim /usr/bin/vi
 
 useradd -m -G wheel mars
 passwd mars
-pacman -S sudo 
+pacman -S sudo
 visudo
 
 pacman -S networkmanager
@@ -86,7 +86,7 @@ $ lspci -k | grep -E "VGA|3D"  -A 3
 sudo journalctl -b | curl -F 'file=@-' 0x0.st
 ```
 
-**gnome 强制启用 wayland** 
+**gnome 强制启用 wayland**
 ```Shell
 7月 08 13:56:50 mapc systemd[1406]: Reached target GNOME Session Manager is ready.
 7月 08 13:56:50 mapc systemd[1406]: Starting GNOME Shell on Wayland...
@@ -105,7 +105,7 @@ sudo ln -s /dev/null /etc/udev/rules.d/61-gdm.rules
 
 **驱动早启动**
 ```Shell
-sudo vi 
+sudo vi
 
 ```
 
@@ -151,7 +151,7 @@ AutomaticLogin=mars
 #Enable=true
 ```
 
-# 参考
+## 参考
 
 - [arch wiki](https://wiki.archlinux.org/)
 - [arch gdm wiki](https://wiki.archlinux.org/title/GDM#Wayland_and_the_proprietary_NVIDIA_driver)

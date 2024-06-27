@@ -22,6 +22,6 @@ ssh-keyscan -t rsa [hostname] >> ~/.ssh/known_hosts
 
 ```
 
-# 参考
+## 参考
 
-[KNOWN_HOSTS处理](https://developer.aliyun.com/article/6827) 
+[KNOWN_HOSTS处理](https://developer.aliyun.com/article/6827)

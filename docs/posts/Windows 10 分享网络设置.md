@@ -15,11 +15,12 @@ tags:
 使用Win + R快捷键调出运行窗口，输入regedit,打开注册表编辑器，依次定位到如下位置：
 
 ```text
-HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\SharedAccess 
+HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\SharedAccess
 在空白处右击鼠标，新建"DWORD（32位）值（D），名称叫做"EnableRebootPersistConnection"，将数值数据改为1。
 ```
 
 保存后重启计算机，下次重启就会自动开启连接了。
-# 参考
+
+## 参考
 
 * [快速的网络共享方法?](https://zhuanlan.zhihu.com/p/489160128)

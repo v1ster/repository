@@ -4,7 +4,7 @@ date: 2023-10-08
 tags:
   - linux
 ---
-# Brief 
+# Brief
 
 首先设置内网机器的流量请求路由到 vpn client
 
@@ -29,7 +29,7 @@ iptables -t nat -A POSTROUTING -s 192.168.0.0/24 -j SNAT --to-source 192.168.1.4
 ```
 
 如果是openwrt 则设置防火墙区域,并设置NAT 转发
-# 参考
+## 参考
 
 - [Adding a permanent static route](https://wiki.gentoo.org/wiki/Static_routing)
 - [使用openv屁恩实现办公室和IDC机房互通](https://www.cnblogs.com/huangweimin/articles/7712771.html)

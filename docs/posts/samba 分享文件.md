@@ -32,7 +32,7 @@ sudo mount -a
 ### 配置smaba
 
 ```Shell
-sudo nano /etc/samba/smb.conf 
+sudo nano /etc/samba/smb.conf
 useradd sambauser
 sudo useradd sambauser
 # 查看samba服务器中已拥有哪些用户
@@ -71,7 +71,7 @@ sudo service smbd restart
 [global]
 
 ## Browsing/Identification ###
-  
+
 # Change this to the workgroup/NT-domain name your Samba server will part of
    workgroup = WORKGROUP
    
@@ -87,7 +87,7 @@ sudo service smbd restart
 # not protected by a firewall or is a firewall itself.  However, this
 # option cannot handle dynamic or non-broadcast interfaces correctly.
 ;   bind interfaces only = yes
-  
+
 #### Debugging/Accounting ####
 # This tells Samba to use a separate log file for each machine
 # that connects
@@ -99,7 +99,7 @@ sudo service smbd restart
 # We want Samba to only log to /var/log/samba/log.{smbd,nmbd}.
 # Append syslog@1 if you want important messages to be sent to syslog too.
    logging = file
-  
+
 # Do something sensible when Samba crashes: mail the admin a backtrace
    panic action = /usr/share/samba/panic-action %d
 
@@ -121,13 +121,13 @@ sudo service smbd restart
 # password with the SMB password when the encrypted SMB password in the
 # passdb is changed.
    unix password sync = yes
-  
+
 # For Unix password sync to work on a Debian GNU/Linux system, the following
 # parameters must be set (thanks to Ian Kahan <<kahan@informatik.tu-muenchen.de> for
 # sending the correct chat script for the passwd program in Debian Sarge).
    passwd program = /usr/bin/passwd %u
    passwd chat = *Enter\snew\s*\spassword:* %n\n *Retype\snew\s*\spassword:* %n\n *password\supdated\ssuccessfully* .
-  
+
 # This boolean controls whether PAM will be used for password changes
 # when requested by an SMB client instead of the program listed in
 # 'passwd program'. The default is 'no'.
@@ -136,7 +136,7 @@ sudo service smbd restart
 # This option controls how unsuccessful authentication attempts are mapped
 # to anonymous connections
    map to guest = bad user
-  
+
 ########## Domains ###########
 #
 # The following settings only takes effect if 'server role = classic
@@ -175,7 +175,7 @@ sudo service smbd restart
 # SAMR RPC pipe.  
 # The following assumes a "machines" group exists on the system
 ; add machine script  = /usr/sbin/useradd -g machines -c "%u machine account" -d /var/lib/samba -s /bin/false %u
-  
+
 # This allows Unix groups to be created on the domain controller via the SAMR
 # RPC pipe.  
 ; add group script = /usr/sbin/addgroup --force-badname %g
@@ -185,7 +185,7 @@ sudo service smbd restart
 # on a per machine basis. The %m gets replaced with the netbios name
 # of the machine that is connecting
 ;   include = /home/samba/etc/smb.conf.%m
-  
+
 # Some defaults for winbind (make sure you're not using the ranges
 # for something else.)
 ;   idmap config * :              backend = tdb
@@ -196,7 +196,7 @@ sudo service smbd restart
 
 # Setup usershare options to enable non-root users to share folders
 # with the net usershare command.
-  
+
 # Maximum number of usershare. 0 means that usershare is disabled.
 #   usershare max shares = 100
 
@@ -216,7 +216,7 @@ sudo service smbd restart
 # File creation mask is set to 0700 for security reasons. If you want to
 # create files with group=rw permissions, set next parameter to 0775.
    create mask = 0700
-  
+
 # Directory creation mask is set to 0700 for security reasons. If you want to
 # create dirs. with group=rw permissions, set next parameter to 0775.
    directory mask = 0700
@@ -280,8 +280,8 @@ sudo service smbd restart
 
 ```
 
-### 参考
+## 参考
 
-- [Debian 挂载硬盘](https://www.cnblogs.com/yogile/p/12573326.html)  
-- [smb.conf 配置](https://www.jianshu.com/p/74cbd9dbb725)  
-- [SAMBA 服务器](http://cn.linux.vbird.org/linux_server/0370samba.php)  
+- [Debian 挂载硬盘](https://www.cnblogs.com/yogile/p/12573326.html)
+- [smb.conf 配置](https://www.jianshu.com/p/74cbd9dbb725)
+- [SAMBA 服务器](http://cn.linux.vbird.org/linux_server/0370samba.php)

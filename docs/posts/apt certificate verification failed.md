@@ -14,6 +14,6 @@ touch /etc/apt/apt.conf.d/99verify-peer.conf \
 
 ```
 
-# 参考
+## 参考
 
 - [apt-get update failed because certificate verification failed because handshake failed on nodesource](https://askubuntu.com/questions/1095266/apt-get-update-failed-because-certificate-verification-failed-because-handshake)

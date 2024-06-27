@@ -23,6 +23,6 @@ git config --global --unset http.https://github.com.proxy)
 ```
 
 
-#### 参考
+## 参考
 
 1. [git设置和取消代理](https://gist.github.com/laispace/666dd7b27e9116faece6)

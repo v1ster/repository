@@ -5,6 +5,7 @@ tags:
   - linux
   - WIP
 ---
+# 删除Ubunut Pro
 
-### 参考
+## 参考
 - [how-to-get-rid-of-ubuntu-pro-advertisement-when-updating-apt](https://askubuntu.com/questions/1434512/how-to-get-rid-of-ubuntu-pro-advertisement-when-updating-apt)

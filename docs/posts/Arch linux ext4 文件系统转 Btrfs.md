@@ -149,7 +149,7 @@ tmpfs           1.5G   76K  1.5G   1% /run/user/1000
 /dev/nvme0n1p3  916G   40G  874G   5% /mnt
 ```
 
-# 参考
+## 参考
 
 [Btrfs：认识、从 Ext4 迁移与快照方案](https://blog.kaaass.net/archives/1748)
 [archlinux 基础安装​](https://arch.icekylin.online/guide/rookie/basic-install#archlinux-%E5%9F%BA%E7%A1%80%E5%AE%89%E8%A3%85)

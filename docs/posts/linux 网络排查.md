@@ -6,13 +6,13 @@ tags:
 ---
 
 查看网关
- 
-` route  -n` 
+
+` route  -n`
 
 查看 DNS
 
-`nslookup baidu.com` 
+`nslookup baidu.com`
 
-# 参考
+## 参考
 
 [Linux系统排查4——网络篇](https://www.cnblogs.com/Security-Darren/p/4700387.html)

@@ -42,6 +42,6 @@ dns-nameservers 192.168.137.1 114.114.114.114
 sudo systemctl restart NetworkManager
 ```
 
-# 参考
+## 参考
 
 - [如何在 Debian 11 上设置一个静态 IP 地址](https://juejin.cn/post/7124495623914520589)

@@ -19,6 +19,8 @@ apt-key export BE1229CF|sudo gpg --dearmour -o /etc/apt/trusted.gpg.d/microsoft.
 ```Shell
 sudo chown _apt /etc/apt/trusted.gpg.d/NAME.gpg
 ```
-#### 参考
+
+## 参考
+
 1. [linux-警告:apt-key is deprecated.](https://www.coder.work/article/7771966)
 2. [Warning: apt-key is deprecated (SOLVED)](https://suay.site/?p=526)

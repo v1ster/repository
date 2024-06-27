@@ -75,7 +75,7 @@ pdbedit -a -u davd
 
 You are prompted to enter a password which will be used to authenticate against Samba.
 
-# 参考
+## 参考
 
 [Samba fileserver on FreeBSD (Update FreeBSD 12)](https://www.davd.io/samba-fileserver-on-freebsd/)
 [How-To: Setup NFS and Samba on FreeBSD 13](https://blog.vulnifo.com/2021/09/17/how-to-setup-nfs-and-samba-on-freebsd-13/)

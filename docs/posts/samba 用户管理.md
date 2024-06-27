@@ -8,7 +8,7 @@ tags:
 
 ### ubuntu下共享文件夹密码设置和重置
 
-设置账号密码和重置密码的方法如下：  
+设置账号密码和重置密码的方法如下：
 
 ```shell
  sudo smbpasswd -a user  
@@ -24,7 +24,7 @@ tags:
 ```
 
 去除添加的账号：
-```shell 
+```shell
 sudo smbpasswd -x champwang  
 Deleted user champwang.
 ```
@@ -71,7 +71,7 @@ pdbedit -L
 ```shell
 smbpasswd -x   用户名
 ```
- 
+
 查看Linux中所有用户：
 
 ```shell
@@ -102,6 +102,6 @@ userdel   用户名
 userdel   -r  用户名
 ```
 
-### 参考
+## 参考
 
 - [原文链接](https://blog.csdn.net/qq_32693119/article/details/80016272)

@@ -43,7 +43,7 @@ git rebase -i HEAD~3
 # 推荐使用fixup 合并commit 和使用reword 来修改提交信息
 ```
 
-### 参考
+## 参考
 
 -   [Git-rebase-合并多个commit](https://swumao.github.io/swumao/update/git/rebase/pick/edit/reword/drop/squash/fixup/2016/08/31/Git-rebase-%E5%90%88%E5%B9%B6%E5%A4%9A%E4%B8%AAcommit.html)
 -   [Git 合并多个 commit，保持历史简洁](https://cloud.tencent.com/developer/article/1690638)
