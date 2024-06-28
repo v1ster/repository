@@ -2,11 +2,12 @@
 title: archlinux install record
 date: 2023-07-08
 tags:
-  - WIP
+  - system
+category:
   - linux
 ---
 
-# 安装linux
+# archlinux install record
 
 ## 1. 分区
 
