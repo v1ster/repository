@@ -51,4 +51,5 @@ For future reference, here is the summary of what these device tree properties d
 
 # 参考
 
-https://community.nxp.com/t5/i-MX-Processors/How-to-Sync-SAI-RX-to-TX/m-p/1564654#M198362
+- [How to Sync SAI RX to TX?](https://community.nxp.com/t5/i-MX-Processors/How-to-Sync-SAI-RX-to-TX/m-p/1564654#M198362) 
+- [fsl-sai.txt](https://www.kernel.org/doc/Documentation/devicetree/bindings/sound/fsl-sai.txt)
