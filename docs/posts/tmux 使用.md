@@ -8,7 +8,9 @@ category:
 ---
 # tmux 一些常用快捷键
 
-1. 
+1. ctrl+b d   // 分离仓库
+2. tmux attach-seesion -t 0  // 回到会话
+3. tmux list-sessions // 列出所有会话
 
 ## 参考
 
