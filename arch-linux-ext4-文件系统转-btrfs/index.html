@@ -1,0 +1,976 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="mars">
+      
+      
+      
+        <link rel="prev" href="../zsh-%E5%A2%9E%E5%8A%A0%E5%91%BD%E4%BB%A4%E5%8E%86%E5%8F%B2%E8%AE%B0%E5%BD%95/">
+      
+      
+        <link rel="next" href="../linux/%E5%9C%A8-freebsd-13-%E4%B8%8A%E5%AE%89%E8%A3%85-gitea/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
+    
+    
+      
+        <title>Arch linux ext4 文件系统转 Btrfs - Seaman's Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.bcfcd587.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="lime">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ext4-btrfs" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Seaman&#39;s Notes" class="md-header__button md-logo" aria-label="Seaman's Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4 8H2.5a1 1 0 0 0-1 1v5.25a.75.75 0 0 1-1.5 0V9a2.5 2.5 0 0 1 2.5-2.5H4V5.133a1.75 1.75 0 0 1 1.533-1.737l2.831-.353.76-.913c.332-.4.825-.63 1.344-.63h.782c.966 0 1.75.784 1.75 1.75V4h2.25a.75.75 0 0 1 0 1.5H13v4h2.25a.75.75 0 0 1 0 1.5H13v.75a1.75 1.75 0 0 1-1.75 1.75h-.782c-.519 0-1.012-.23-1.344-.63l-.761-.912-2.83-.354A1.75 1.75 0 0 1 4 9.867Zm6.276-4.91-.95 1.14a.753.753 0 0 1-.483.265l-3.124.39a.25.25 0 0 0-.219.248v4.734c0 .126.094.233.219.249l3.124.39a.752.752 0 0 1 .483.264l.95 1.14a.25.25 0 0 0 .192.09h.782a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25h-.782a.25.25 0 0 0-.192.09Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Seaman's Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Arch linux ext4 文件系统转 Btrfs
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/v1ster/repository" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+  </div>
+  <div class="md-source__repository">
+    v1ster/repository
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Seaman&#39;s Notes" class="md-nav__button md-logo" aria-label="Seaman's Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4 8H2.5a1 1 0 0 0-1 1v5.25a.75.75 0 0 1-1.5 0V9a2.5 2.5 0 0 1 2.5-2.5H4V5.133a1.75 1.75 0 0 1 1.533-1.737l2.831-.353.76-.913c.332-.4.825-.63 1.344-.63h.782c.966 0 1.75.784 1.75 1.75V4h2.25a.75.75 0 0 1 0 1.5H13v4h2.25a.75.75 0 0 1 0 1.5H13v.75a1.75 1.75 0 0 1-1.75 1.75h-.782c-.519 0-1.012-.23-1.344-.63l-.761-.912-2.83-.354A1.75 1.75 0 0 1 4 9.867Zm6.276-4.91-.95 1.14a.753.753 0 0 1-.483.265l-3.124.39a.25.25 0 0 0-.219.248v4.734c0 .126.094.233.219.249l3.124.39a.752.752 0 0 1 .483.264l.95 1.14a.25.25 0 0 0 .192.09h.782a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25h-.782a.25.25 0 0 0-.192.09Z"/></svg>
+
+    </a>
+    Seaman's Notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/v1ster/repository" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+  </div>
+  <div class="md-source__repository">
+    v1ster/repository
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blog/tags/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tags
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Archive
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Archive
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../archive/2025/03/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2025/08
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../archive/2025/02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2025/04
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../archive/2025/01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2025/01
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../archive/2024/04/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2024/11
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../archive/2024/03/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2024/08
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../archive/2024/02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2024/06
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../archive/2024/01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2024/02
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../archive/2023/04/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2023/12
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../archive/2023/03/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2023/09
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../archive/2023/02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2023/06
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../archive/2018/01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2018/03
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Categories
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Categories
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../category/linux/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    linux
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href=".." class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5v-5Z"/></svg>
+                        <time datetime="2024-04-14 00:00:00" class="md-ellipsis">April 14, 2024</time>
+                      </div>
+                    </li>
+                    
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7h1.5Z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              3 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+  
+  
+
+<nav class="md-tags" >
+  
+    
+    
+    
+      <a href="../blog/tags/#linux" class="md-tag">linux</a>
+    
+  
+</nav>
+
+
+  
+  
+
+
+<h1 id="ext4-btrfs">ext4 文件系统转为 Btrfs</h1>
+<blockquote>
+<p>注意所有操作在LiveCD 环境下进行操作</p>
+</blockquote>
+<ol>
+<li>检查文件系统保证现有分区没有问题
+<div class="language-Shell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>fsck.ext4<span class="w"> </span>/dev/nvme0n1p3
+</span></code></pre></div></li>
+<li>文件系统转换
+<div class="language-Shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>btrfs-convert<span class="w"> </span>/dev/nvme0n1p3
+</span></code></pre></div></li>
+<li>挂载分区并修改fstab
+<div class="language-Shell highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>mount<span class="w"> </span>/dev/nvme0n1p3<span class="w"> </span>/mnt
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>mount<span class="w"> </span>/dev/nvme0n1p4<span class="w"> </span>/mnt/home
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>mount<span class="w"> </span>/dev/nvme0n1p1<span class="w"> </span>/mnt/boot
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>sweapon<span class="w"> </span>/dev/nvme0n1p2
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>mount<span class="w"> </span>-t<span class="w"> </span>proc<span class="w"> </span>none<span class="w"> </span>/mnt/proc
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>mount<span class="w"> </span>-t<span class="w"> </span>sysfs<span class="w"> </span>none<span class="w"> </span>/mnt/sys
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>mount<span class="w"> </span>-o<span class="w"> </span><span class="nb">bind</span><span class="w"> </span>/dev<span class="w"> </span>/mnt/dev
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>genfstab<span class="w"> </span>-U<span class="w"> </span>/mnt<span class="w"> </span>&gt;<span class="w"> </span>/mnt/etc/fstab
+</span></code></pre></div></li>
+<li>使用 <code>pacstrap</code> 脚本安装基础包：
+<div class="language-Shell highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>arch-chroot<span class="w"> </span>/mnt
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>pacstrap<span class="w"> </span>/mnt<span class="w"> </span>base<span class="w"> </span>base-devel<span class="w"> </span>linux<span class="w"> </span>linux-firmware<span class="w"> </span>btrfs-progs
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1"># 如果使用btrfs文件系统，额外安装一个btrfs-progs包</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>pacstrap<span class="w"> </span>/mnt<span class="w"> </span>networkmanager<span class="w"> </span>vim<span class="w"> </span>sudo<span class="w"> </span>zsh<span class="w"> </span>zsh-completions
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>mkinitcpio<span class="w"> </span>-P
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="nb">exit</span>
+</span></code></pre></div></li>
+<li>启用透明压缩
+<div class="language-Shell highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>btrfs<span class="w"> </span>filesystem<span class="w"> </span>defragment<span class="w"> </span>-r<span class="w"> </span>-v<span class="w"> </span>-czstd<span class="w"> </span>/mnt
+</span></code></pre></div></li>
+<li>使用balance 来回收数据
+<div class="language-Shell highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>btrfs<span class="w"> </span>subvolume<span class="w"> </span>delete<span class="w"> </span>/mnt/ext2_saved
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>btrfs<span class="w"> </span>balance<span class="w"> </span>start<span class="w"> </span>/mnt
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>btrfs<span class="w"> </span>balance<span class="w"> </span>status<span class="w"> </span>/mnt
+</span></code></pre></div></li>
+</ol>
+<h1 id="_1">根目录文件迁移到子卷</h1>
+<ol>
+<li>创建子卷
+<div class="language-Shell highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo<span class="w"> </span>btrfs<span class="w"> </span>subvolume<span class="w"> </span>create<span class="w"> </span>/mnt/@
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>sudo<span class="w"> </span>btrfs<span class="w"> </span>subvolume<span class="w"> </span>create<span class="w"> </span>/mnt/@home
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>sudo<span class="w"> </span>btrfs<span class="w"> </span>subvol<span class="w"> </span>list<span class="w"> </span>/mnt
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>ID<span class="w"> </span><span class="m">256</span><span class="w"> </span>gen<span class="w"> </span><span class="m">3500</span><span class="w"> </span>top<span class="w"> </span>level<span class="w"> </span><span class="m">5</span><span class="w"> </span>path<span class="w"> </span>@
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>ID<span class="w"> </span><span class="m">258</span><span class="w"> </span>gen<span class="w"> </span><span class="m">3500</span><span class="w"> </span>top<span class="w"> </span>level<span class="w"> </span><span class="m">5</span><span class="w"> </span>path<span class="w"> </span>@home
+</span></code></pre></div></li>
+<li>同步子区文件
+<div class="language-Shell highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>rsync<span class="w"> </span>-a<span class="w"> </span>/mnt<span class="w"> </span>/mnt/@
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>rsync<span class="w"> </span>-a<span class="w"> </span>/mnt/home<span class="w"> </span>/mnt/@home
+</span></code></pre></div></li>
+<li>挂载分区并修改fstab<blockquote>
+<p>这里要注意重新挂载其他的分区
+<div class="language-Shell highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>mount<span class="w"> </span>-t<span class="w"> </span>btrfs<span class="w"> </span>-o<span class="w"> </span><span class="nv">subvol</span><span class="o">=</span>/@,compress<span class="o">=</span>zstd<span class="w"> </span>/dev//dev/nvme0n1p3<span class="w"> </span>/mnt
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>mount<span class="w"> </span>-t<span class="w"> </span>btrfs<span class="w"> </span>-o<span class="w"> </span><span class="nv">subvol</span><span class="o">=</span>/@home,compress<span class="o">=</span>zstd<span class="w"> </span>/dev//dev/nvme0n1p3<span class="w"> </span>/mnt/home
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>genfstab<span class="w"> </span>-U<span class="w"> </span>/mnt<span class="w"> </span>&gt;<span class="w"> </span>/mnt/etc/fstab
+</span></code></pre></div></p>
+</blockquote>
+</li>
+<li>修改systemd-boot 引导
+<div class="language-Shell highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sudo<span class="w"> </span>blkid<span class="w"> </span>-p<span class="w"> </span>/dev/nvme0n1p3
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>ls<span class="w"> </span>/dev/disk/by-partuuid<span class="w"> </span>-la
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>total<span class="w"> </span><span class="m">0</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>drwxr-xr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>root<span class="w"> </span>root<span class="w"> </span><span class="m">160</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">14</span><span class="w"> </span><span class="m">16</span>:07<span class="w"> </span>.
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>drwxr-xr-x<span class="w"> </span><span class="m">8</span><span class="w"> </span>root<span class="w"> </span>root<span class="w"> </span><span class="m">160</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">14</span><span class="w"> </span><span class="m">16</span>:07<span class="w"> </span>..
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>lrwxrwxrwx<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">  </span><span class="m">15</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">14</span><span class="w"> </span><span class="m">16</span>:07<span class="w"> </span>1f52178e-ace5-43c8-a25a-666b6975533a<span class="w"> </span>-&gt;<span class="w"> </span>../../nvme1n1p2
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>lrwxrwxrwx<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">  </span><span class="m">15</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">14</span><span class="w"> </span><span class="m">16</span>:07<span class="w"> </span>73d99787-e061-4aef-a610-278463f96cf6<span class="w"> </span>-&gt;<span class="w"> </span>../../nvme0n1p3
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>lrwxrwxrwx<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">  </span><span class="m">15</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">14</span><span class="w"> </span><span class="m">16</span>:07<span class="w"> </span>99ef2922-a9df-49e1-a193-d48b7fc9a40a<span class="w"> </span>-&gt;<span class="w"> </span>../../nvme0n1p2
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>lrwxrwxrwx<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">  </span><span class="m">15</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">14</span><span class="w"> </span><span class="m">16</span>:07<span class="w"> </span>b339edf8-ea40-459e-b26d-dd70d49064b4<span class="w"> </span>-&gt;<span class="w"> </span>../../nvme1n1p3
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>lrwxrwxrwx<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">  </span><span class="m">15</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">14</span><span class="w"> </span><span class="m">16</span>:07<span class="w"> </span>be3bb32f-6193-472d-be7d-1a4f9f5d682e<span class="w"> </span>-&gt;<span class="w"> </span>../../nvme0n1p1
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>lrwxrwxrwx<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">  </span><span class="m">15</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">14</span><span class="w"> </span><span class="m">16</span>:07<span class="w"> </span>c84bac03-8a3a-4f9e-a121-3a00d9187be3<span class="w"> </span>-&gt;<span class="w"> </span>../../nvme1n1p1
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>vim<span class="w"> </span>/boot/loader/entries/arch.conf<span class="w">  </span>
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>title<span class="w">   </span>Arch<span class="w"> </span>Linux
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>linux<span class="w">   </span>/vmlinuz-linux
+</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a>initrd<span class="w">  </span>/amd-ucode.img
+</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>initrd<span class="w">  </span>/initramfs-linux.img
+</span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a>options<span class="w"> </span><span class="nv">root</span><span class="o">=</span><span class="nv">PARTUUID</span><span class="o">=</span>73d99787-e061-4aef-a610-278463f96cf6<span class="w"> </span>rw<span class="w"> </span><span class="nv">rootflags</span><span class="o">=</span><span class="nv">subvol</span><span class="o">=</span>/@
+</span></code></pre></div></li>
+</ol>
+<h1 id="_2">修改分区大小</h1>
+<div class="language-Shell highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="o">[</span>mars@mapc<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>sudo<span class="w"> </span>fdisk<span class="w"> </span>/dev/nvme0n1<span class="w">               </span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>Welcome<span class="w"> </span>to<span class="w"> </span>fdisk<span class="w"> </span><span class="o">(</span>util-linux<span class="w"> </span><span class="m">2</span>.40<span class="o">)</span>.
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>Changes<span class="w"> </span>will<span class="w"> </span>remain<span class="w"> </span><span class="k">in</span><span class="w"> </span>memory<span class="w"> </span>only,<span class="w"> </span><span class="k">until</span><span class="w"> </span>you<span class="w"> </span>decide<span class="w"> </span>to<span class="w"> </span>write<span class="w"> </span>them.
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>Be<span class="w"> </span>careful<span class="w"> </span>before<span class="w"> </span>using<span class="w"> </span>the<span class="w"> </span>write<span class="w"> </span>command.
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>This<span class="w"> </span>disk<span class="w"> </span>is<span class="w"> </span>currently<span class="w"> </span><span class="k">in</span><span class="w"> </span>use<span class="w"> </span>-<span class="w"> </span>repartitioning<span class="w"> </span>is<span class="w"> </span>probably<span class="w"> </span>a<span class="w"> </span>bad<span class="w"> </span>idea.
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>It<span class="err">&#39;</span>s<span class="w"> </span>recommended<span class="w"> </span>to<span class="w"> </span>umount<span class="w"> </span>all<span class="w"> </span>file<span class="w"> </span>systems,<span class="w"> </span>and<span class="w"> </span>swapoff<span class="w"> </span>all<span class="w"> </span>swap
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>partitions<span class="w"> </span>on<span class="w"> </span>this<span class="w"> </span>disk.
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>Command<span class="w"> </span><span class="o">(</span>m<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nb">help</span><span class="o">)</span>:<span class="w"> </span>e
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>Partition<span class="w"> </span>number<span class="w"> </span><span class="o">(</span><span class="m">1</span>-3,<span class="w"> </span>default<span class="w"> </span><span class="m">3</span><span class="o">)</span>:<span class="w">  </span>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>New<span class="w"> </span>&lt;size&gt;<span class="o">{</span>K,M,G,T,P<span class="o">}</span><span class="w"> </span><span class="k">in</span><span class="w"> </span>bytes<span class="w"> </span>or<span class="w"> </span>&lt;size&gt;S<span class="w"> </span><span class="k">in</span><span class="w"> </span>sectors<span class="w"> </span><span class="o">(</span>default<span class="w"> </span>915G<span class="o">)</span>:<span class="w">  </span>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>Partition<span class="w"> </span><span class="m">3</span><span class="w"> </span>has<span class="w"> </span>been<span class="w"> </span>resized.
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>Command<span class="w"> </span><span class="o">(</span>m<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nb">help</span><span class="o">)</span>:<span class="w"> </span>w
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>The<span class="w"> </span>partition<span class="w"> </span>table<span class="w"> </span>has<span class="w"> </span>been<span class="w"> </span>altered.
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a>Syncing<span class="w"> </span>disks.
+</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a><span class="o">[</span>mars@mapc<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>df<span class="w"> </span>-h<span class="w">                   </span>
+</span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a>Filesystem<span class="w">      </span>Size<span class="w">  </span>Used<span class="w"> </span>Avail<span class="w"> </span>Use%<span class="w"> </span>Mounted<span class="w"> </span>on
+</span><span id="__span-10-24"><a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a>dev<span class="w">             </span><span class="m">7</span>.5G<span class="w">     </span><span class="m">0</span><span class="w">  </span><span class="m">7</span>.5G<span class="w">   </span><span class="m">0</span>%<span class="w"> </span>/dev
+</span><span id="__span-10-25"><a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a>run<span class="w">             </span><span class="m">7</span>.5G<span class="w">  </span><span class="m">1</span>.9M<span class="w">  </span><span class="m">7</span>.5G<span class="w">   </span><span class="m">1</span>%<span class="w"> </span>/run
+</span><span id="__span-10-26"><a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a>efivarfs<span class="w">        </span>148K<span class="w">  </span>126K<span class="w">   </span>18K<span class="w">  </span><span class="m">88</span>%<span class="w"> </span>/sys/firmware/efi/efivars
+</span><span id="__span-10-27"><a id="__codelineno-10-27" name="__codelineno-10-27" href="#__codelineno-10-27"></a>/dev/nvme0n1p3<span class="w">  </span>512G<span class="w">   </span>40G<span class="w">  </span>471G<span class="w">   </span><span class="m">8</span>%<span class="w"> </span>/
+</span><span id="__span-10-28"><a id="__codelineno-10-28" name="__codelineno-10-28" href="#__codelineno-10-28"></a>tmpfs<span class="w">           </span><span class="m">7</span>.5G<span class="w">  </span>169M<span class="w">  </span><span class="m">7</span>.4G<span class="w">   </span><span class="m">3</span>%<span class="w"> </span>/dev/shm
+</span><span id="__span-10-29"><a id="__codelineno-10-29" name="__codelineno-10-29" href="#__codelineno-10-29"></a>/dev/nvme0n1p3<span class="w">  </span>512G<span class="w">   </span>40G<span class="w">  </span>471G<span class="w">   </span><span class="m">8</span>%<span class="w"> </span>/home
+</span><span id="__span-10-30"><a id="__codelineno-10-30" name="__codelineno-10-30" href="#__codelineno-10-30"></a>/dev/nvme0n1p1<span class="w">  </span>511M<span class="w">  </span>297M<span class="w">  </span>215M<span class="w">  </span><span class="m">59</span>%<span class="w"> </span>/boot
+</span><span id="__span-10-31"><a id="__codelineno-10-31" name="__codelineno-10-31" href="#__codelineno-10-31"></a>tmpfs<span class="w">           </span><span class="m">7</span>.5G<span class="w">   </span>29M<span class="w">  </span><span class="m">7</span>.5G<span class="w">   </span><span class="m">1</span>%<span class="w"> </span>/tmp
+</span><span id="__span-10-32"><a id="__codelineno-10-32" name="__codelineno-10-32" href="#__codelineno-10-32"></a>tmpfs<span class="w">           </span><span class="m">1</span>.5G<span class="w">   </span>76K<span class="w">  </span><span class="m">1</span>.5G<span class="w">   </span><span class="m">1</span>%<span class="w"> </span>/run/user/1000
+</span><span id="__span-10-33"><a id="__codelineno-10-33" name="__codelineno-10-33" href="#__codelineno-10-33"></a>/dev/nvme0n1p3<span class="w">  </span>512G<span class="w">   </span>40G<span class="w">  </span>471G<span class="w">   </span><span class="m">8</span>%<span class="w"> </span>/mnt
+</span><span id="__span-10-34"><a id="__codelineno-10-34" name="__codelineno-10-34" href="#__codelineno-10-34"></a><span class="o">[</span>mars@mapc<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>sudo<span class="w"> </span>btrfs<span class="w"> </span>filesystem<span class="w"> </span>resize<span class="w"> </span>max<span class="w"> </span>/mnt
+</span><span id="__span-10-35"><a id="__codelineno-10-35" name="__codelineno-10-35" href="#__codelineno-10-35"></a>Resize<span class="w"> </span>device<span class="w"> </span>id<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>/dev/nvme0n1p3<span class="o">)</span><span class="w"> </span>from<span class="w"> </span><span class="m">512</span>.00GiB<span class="w"> </span>to<span class="w"> </span>max
+</span><span id="__span-10-36"><a id="__codelineno-10-36" name="__codelineno-10-36" href="#__codelineno-10-36"></a><span class="o">[</span>mars@mapc<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>df<span class="w"> </span>-h<span class="w">                                 </span>
+</span><span id="__span-10-37"><a id="__codelineno-10-37" name="__codelineno-10-37" href="#__codelineno-10-37"></a>Filesystem<span class="w">      </span>Size<span class="w">  </span>Used<span class="w"> </span>Avail<span class="w"> </span>Use%<span class="w"> </span>Mounted<span class="w"> </span>on
+</span><span id="__span-10-38"><a id="__codelineno-10-38" name="__codelineno-10-38" href="#__codelineno-10-38"></a>dev<span class="w">             </span><span class="m">7</span>.5G<span class="w">     </span><span class="m">0</span><span class="w">  </span><span class="m">7</span>.5G<span class="w">   </span><span class="m">0</span>%<span class="w"> </span>/dev
+</span><span id="__span-10-39"><a id="__codelineno-10-39" name="__codelineno-10-39" href="#__codelineno-10-39"></a>run<span class="w">             </span><span class="m">7</span>.5G<span class="w">  </span><span class="m">1</span>.9M<span class="w">  </span><span class="m">7</span>.5G<span class="w">   </span><span class="m">1</span>%<span class="w"> </span>/run
+</span><span id="__span-10-40"><a id="__codelineno-10-40" name="__codelineno-10-40" href="#__codelineno-10-40"></a>efivarfs<span class="w">        </span>148K<span class="w">  </span>126K<span class="w">   </span>18K<span class="w">  </span><span class="m">88</span>%<span class="w"> </span>/sys/firmware/efi/efivars
+</span><span id="__span-10-41"><a id="__codelineno-10-41" name="__codelineno-10-41" href="#__codelineno-10-41"></a>/dev/nvme0n1p3<span class="w">  </span>916G<span class="w">   </span>40G<span class="w">  </span>874G<span class="w">   </span><span class="m">5</span>%<span class="w"> </span>/
+</span><span id="__span-10-42"><a id="__codelineno-10-42" name="__codelineno-10-42" href="#__codelineno-10-42"></a>tmpfs<span class="w">           </span><span class="m">7</span>.5G<span class="w">  </span>169M<span class="w">  </span><span class="m">7</span>.4G<span class="w">   </span><span class="m">3</span>%<span class="w"> </span>/dev/shm
+</span><span id="__span-10-43"><a id="__codelineno-10-43" name="__codelineno-10-43" href="#__codelineno-10-43"></a>/dev/nvme0n1p3<span class="w">  </span>916G<span class="w">   </span>40G<span class="w">  </span>874G<span class="w">   </span><span class="m">5</span>%<span class="w"> </span>/home
+</span><span id="__span-10-44"><a id="__codelineno-10-44" name="__codelineno-10-44" href="#__codelineno-10-44"></a>/dev/nvme0n1p1<span class="w">  </span>511M<span class="w">  </span>297M<span class="w">  </span>215M<span class="w">  </span><span class="m">59</span>%<span class="w"> </span>/boot
+</span><span id="__span-10-45"><a id="__codelineno-10-45" name="__codelineno-10-45" href="#__codelineno-10-45"></a>tmpfs<span class="w">           </span><span class="m">7</span>.5G<span class="w">   </span>29M<span class="w">  </span><span class="m">7</span>.5G<span class="w">   </span><span class="m">1</span>%<span class="w"> </span>/tmp
+</span><span id="__span-10-46"><a id="__codelineno-10-46" name="__codelineno-10-46" href="#__codelineno-10-46"></a>tmpfs<span class="w">           </span><span class="m">1</span>.5G<span class="w">   </span>76K<span class="w">  </span><span class="m">1</span>.5G<span class="w">   </span><span class="m">1</span>%<span class="w"> </span>/run/user/1000
+</span><span id="__span-10-47"><a id="__codelineno-10-47" name="__codelineno-10-47" href="#__codelineno-10-47"></a>/dev/nvme0n1p3<span class="w">  </span>916G<span class="w">   </span>40G<span class="w">  </span>874G<span class="w">   </span><span class="m">5</span>%<span class="w"> </span>/mnt
+</span></code></pre></div>
+<h2 id="_3">参考</h2>
+<p><a href="https://blog.kaaass.net/archives/1748">Btrfs：认识、从 Ext4 迁移与快照方案</a>
+<a href="https://arch.icekylin.online/guide/rookie/basic-install#archlinux-%E5%9F%BA%E7%A1%80%E5%AE%89%E8%A3%85">archlinux 基础安装​</a>
+<a href="https://wiki.archlinux.org/title/TLP">TLP</a>
+<a href="https://zhuanlan.zhihu.com/p/385843857">将 Arch Linux 内核从 stable 更换为 LTS 的办法与案例</a>
+<a href="https://wiki.archlinux.org/title/Kernel">Kernel</a>
+<a href="https://blog.samchu.cn/posts/linux-ext4-to-btrfs/">Linux ext4 文件系统转 Btrfs</a></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+      
+    </article>
+  </div>
+
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.sections", "navigation.instant", "navigation.path", "navigation.indexes", "navigation.top"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
+      
+    
+  </body>
+</html>
